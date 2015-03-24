@@ -8,6 +8,8 @@ import ule.edi.EmptyCollectionException;
 public class ArrayBagImpl<T> implements Bag<T> {
 
 	public ArrayBagImpl() {
+		// Constructor del BAG ARRAY IMPLEMENTATION
+		
 		
 	}
 

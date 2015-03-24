@@ -8,7 +8,7 @@ import ule.edi.EmptyCollectionException;
 public class LinkedBagImpl<T> implements Bag<T> {
 
 	public LinkedBagImpl() {
-		
+		// Linked Baj IMKAFASd
 	}
 	
 	@Override
