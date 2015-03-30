@@ -1,8 +1,13 @@
 package ule.edi.bag;
 
+import static org.junit.Assert.*;
+
 import java.math.BigDecimal;
 import java.util.logging.Logger;
 
+import junit.framework.Assert;
+
+import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -12,6 +17,20 @@ import org.junit.Test;
  *
  */
 public class ArrayBagImplTests{
+	
+	private ArrayBagImpl abi;
+	private ArrayBagImpl abi2;
+	private ArrayBagImpl abi3;
+	
+	@Before
+	public void setUp() throws Exception {
+		abi = new ArrayBagImpl<>();
+		abi2 = new ArrayBagImpl<>();
+		abi3 = new ArrayBagImpl<>();
+		
+		
+		
+	}
 
 	
 	@Test
@@ -31,6 +50,15 @@ public class ArrayBagImplTests{
 	@Test(expected = NullPointerException.class)
 	public void testNullCheckOnAdd() {
 //		S1.add(null);
+	}
+	
+	@Test 
+	
+	public void testAdd(){
+		
+	
+		
+		
 	}
 		
 }

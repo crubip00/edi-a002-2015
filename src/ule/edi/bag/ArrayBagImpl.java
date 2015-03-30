@@ -16,6 +16,7 @@ public class ArrayBagImpl<T> implements Bag<T> {
 
 	private static Random r = new Random();
 
+	@SuppressWarnings("unchecked")
 	public ArrayBagImpl() {
 
 		this.cont = 0;
@@ -26,21 +27,43 @@ public class ArrayBagImpl<T> implements Bag<T> {
 	@Override
 	public void add(T element, int times) {
 
+		if (element == null) {
+			throw new NullPointerException("Error ADD ELEMENT");
+		}
+
+		if (times < 0) {
+			throw new IllegalArgumentException("Error ADD TIMES");
+		}
+
+		/*
+		 * if( this.size()==this.contens.length){ expandCapacity(); }
+		 */
+
+		for (int i = 0; i < times; i++) {
+			this.contens[this.cont] = element;
+			this.cont++;
+		}
+
 	}
 
 	@Override
 	public void add(T element) {
 
-		if (this.size() == this.contens.length) {
-			expandCapacity();
+		if (element == null) {
+			throw new NullPointerException("Error ADD ");
 		}
+		/*
+		 * if (this.size() == this.contens.length) { expandCapacity(); }
+		 */
 		this.contens[this.cont] = element;
 		this.cont++;
 
 	}
 
+	@SuppressWarnings("unused")
 	private void expandCapacity() {
-		
+
+		@SuppressWarnings("unchecked")
 		T[] larger = (T[]) (new Object[this.contens.length * 2]);
 		for (int i = 0; i < this.contens.length; i++) {
 			larger[i] = this.contens[i];
@@ -50,12 +73,37 @@ public class ArrayBagImpl<T> implements Bag<T> {
 
 	@Override
 	public void remove(T element, int times) {
-		// TODO Auto-generated method stub
+
+		if (element == null) {
+			throw new NullPointerException("Error REMOVE ELEMENT");
+		}
+
+		if (times < 0) {
+			throw new IllegalArgumentException("Error REMOVE");
+		}
+
+		for (int i = 0; i < times; i++) {
+			this.contens[this.cont] = element;
+			this.contens[this.cont - 1] = null;
+			this.cont--;
+		}
 
 	}
 
 	@Override
 	public void remove(T element) {
+
+		if (element == null) {
+			throw new NullPointerException("Error REMOVE");
+		}
+		if (!this.contens.equals(element)) {
+			try {
+				throw new EmptyCollectionException(" asdf");
+			} catch (EmptyCollectionException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 
 		this.contens[this.cont] = element;
 		this.contens[this.cont - 1] = null;
@@ -65,32 +113,50 @@ public class ArrayBagImpl<T> implements Bag<T> {
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public boolean contains(T element) {
-		// TODO Auto-generated method stub
-		return false;
+
+		int var = -1;
+
+		for (int i = 0; i < this.cont && var == -1; i++) {
+			if (contens[i].equals(element)) {
+				var = i;
+			}
+		}
+		return (var != -1);
 	}
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+		if (this.cont == 0)
+			return true;
+		else
+			return false;
 	}
 
 	@Override
 	public long size() {
-		// TODO Auto-generated method stub
-		return 0;
+
+		return this.cont;
+
 	}
 
 	@Override
 	public int count(T element) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		int var = -1;
+
+		for (int i = 0; i < this.cont && var == -1; i++) {
+			if (contens[i].equals(element)) {
+				var = i;
+				
+			}
+		}
+		return var;
+		
 	}
 
 	@Override

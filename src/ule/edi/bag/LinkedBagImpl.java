@@ -2,13 +2,22 @@ package ule.edi.bag;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+import java.util.Random;
 
 import ule.edi.EmptyCollectionException;
 
 public class LinkedBagImpl<T> implements Bag<T> {
+	
+	private int cont;
+	private Bag <T> lista;
+	private static Random r = new Random();
+	
 
 	public LinkedBagImpl() {
-		// Linked Baj IMKAFASd
+		
+		this.cont=0;
+		this.lista=null;
+		
 	}
 	
 	@Override
@@ -19,8 +28,7 @@ public class LinkedBagImpl<T> implements Bag<T> {
 
 	@Override
 	public void add(T element) {
-		// TODO Auto-generated method stub
-		
+	
 	}
 
 	@Override
@@ -43,20 +51,18 @@ public class LinkedBagImpl<T> implements Bag<T> {
 
 	@Override
 	public boolean contains(T element) {
-		// TODO Auto-generated method stub
 		return false;
+		
 	}
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+		return (this.cont==0);
 	}
 
 	@Override
 	public long size() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.cont;
 	}
 
 	@Override

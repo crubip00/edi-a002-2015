@@ -24,7 +24,7 @@ public class EuroCurrencyTests {
 	
 	@Test
 	public void testBagOfEuros() {
-		
+		/*
 		//	Crea una bolsa con elementos del tipo adecuado
 		Bag<Euro.Denomination> B = new ArrayBagImpl<Euro.Denomination>();
 		
@@ -51,5 +51,5 @@ public class EuroCurrencyTests {
 			//	Mostrarlo
 			System.out.println(x);
 		}
-	}
+	*/}
 }
